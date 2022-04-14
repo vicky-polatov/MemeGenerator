@@ -60,6 +60,6 @@ function _createImg(id, keyWords) {
     return {
         id,
         keyWords,
-        url: `img/meme-imgs (square)/${id}.jpg`
+        url: `img/meme-imgs-square/${id}.jpg`
     }
 }
