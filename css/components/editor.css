@@ -6,21 +6,16 @@
 
 .canvas-container {
     background-color: var(--clr-container-bcg);
-    margin: auto;
     border-radius: 1.875rem;
     border: 6px solid var(--clr-container-bcg);
-    position: relative;
-    width: 50%;
-    max-height: 100%;
+    flex-basis: 50%;
 }
 
 #main-canvas {
     /* background-color: var(--clr-white); */
     outline: 1px solid var(--clr-white);
-    display: block;
-    margin: 0 auto;
+    aspect-ratio: 1/1;
     border-radius: 1.875rem;
-    position: absolute;
     cursor: grab;
 }
 
@@ -28,8 +23,7 @@
     background-color: var(--clr-container-bcg);
     border-radius: 1.875rem;
     padding: 1.25rem 2.5rem;
-    width: 50%;
-    min-height: 100%;
+    flex-basis: 50%;
     align-self: stretch;
 }
 

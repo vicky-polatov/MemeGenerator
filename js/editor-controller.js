@@ -21,16 +21,17 @@ function onOpenEditor() {
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth - 150
-    gElCanvas.height = elContainer.offsetWidth - 150
-    elContainer.style.height = `${gElCanvas.height + 20}px`
+    gElCanvas.width = 0
+    gElCanvas.height = 0
+    gElCanvas.width = elContainer.offsetWidth - 10
+    gElCanvas.height = elContainer.offsetHeight - 10
 }
 
 function renderMeme() {
     // clearCanvas()
     const meme = getMeme()
     const img = new Image()
-    img.src = `../img/meme-imgs-square/${meme.selectedImgId}.jpg`
+    img.src = `img/meme-imgs-square/${meme.selectedImgId}.jpg`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawLines()

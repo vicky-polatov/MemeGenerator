@@ -1,0 +1,29 @@
+/* MOBILE ONLY */
+@media (max-width: 450px) {
+
+}
+  
+  
+  /* MEDIUM */
+@media screen and (min-width: 450px) {
+    .meme-editor{
+        flex-direction: column;
+        
+    }
+
+    .canvas-container {
+        flex-basis: 35%;
+  
+  }
+  
+
+}
+  
+  /* LARGE */
+  @media screen and (min-width: 1120px) {
+    .meme-editor{
+        flex-direction: unset;
+    }
+
+  }
+  
