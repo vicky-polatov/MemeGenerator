@@ -30,7 +30,7 @@ function renderMeme() {
     // clearCanvas()
     const meme = getMeme()
     const img = new Image()
-    img.src = `../img/meme-imgs (square)/${meme.selectedImgId}.jpg`
+    img.src = `../img/meme-imgs-square/${meme.selectedImgId}.jpg`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawLines()
