@@ -4,7 +4,6 @@ const SAVED_MEMES_KEY = 'SAVED_MEMES'
 
 let gMeme
 let gSavedMemes
-let gIsImgReady
 let gStartPos
 
 function initMeme(selectedImgId = 0) {
@@ -65,6 +64,7 @@ function setFontFamily(elOption) {
     const fontFamily = elOption.value
     const currLine = getLine()
     currLine.fontFamily = fontFamily
+    renderMeme()
 }
 
 function setColor(color, elChangeComponent) {
@@ -72,16 +72,6 @@ function setColor(color, elChangeComponent) {
     const currLine = getLine()
     if (elChangeComponent === 'font') currLine.fontColor = color
     else currLine.strokeColor = color
-}
-
-function readyCanvas() {
-    gIsImgReady = true
-    renderMeme()
-    setTimeout(() => gIsImgReady = false)
-}
-
-function isImageReady() {
-    return gIsImgReady
 }
 
 function getEvPos(ev) {

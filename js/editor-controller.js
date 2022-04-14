@@ -2,9 +2,10 @@
 
 let gElCanvas = document.querySelector('#main-canvas')
 let gCtx = gElCanvas.getContext('2d')
+let gIsDownloadable = false
 
 function onEditorInit() {
-    gIsImgReady = false;
+    gIsDownloadable = false;
     addResizeEventListener()
     addMouseEventListeners()
     addTouchEventListeners()
@@ -78,14 +79,10 @@ function drawLine(line) {
 }
 
 function highlightLine() {
-    const isReady = isImageReady()
-    console.log(isReady);
-    if (isReady) return
+    if (gIsDownloadable) return
     const line = getLine()
     const txt = line.txt
-    console.log(txt)
     const textWidth = gCtx.measureText(txt).width
-    console.log(textWidth)
     gCtx.beginPath()
     const x = line.x - textWidth
     const y = line.y - line.size * 1.25
@@ -136,7 +133,6 @@ function alignText(alignTo) {
 
 function onSetFontFamily(fontFamily) {
     setFontFamily(fontFamily)
-    renderMeme()
 }
 
 function onColorChange(elColor, isFill) {
@@ -146,24 +142,48 @@ function onColorChange(elColor, isFill) {
     renderMeme()
 }
 
-function onSaveMeme() {
-    readyCanvas()
-    const memeDataUrl = gElCanvas.toDataURL('image/jpeg', 0.5)
-    getSavedMemes()
-    saveMeme(memeDataUrl)
-    renderMemes()
-    onOpenMemes()
+function onSaveMeme(elLink, ev) {
+    if (gIsDownloadable) return gIsDownloadable = false
+    ev.preventDefault()
+    gIsDownloadable = true
+    renderMeme()
+    setTimeout(function () {
+        const memeDataUrl = gElCanvas.toDataURL('image/jpeg', 0.5)
+        getSavedMemes()
+        saveMeme(memeDataUrl)
+        renderMemes()
+        onOpenMemes()
+        elLink.click()
+        // renderMeme()
+    }, 0)
 }
 
-/////// לתקן את הבאג מחר או בשבת
-function onDownloadMeme(elLink) {
-    readyCanvas()
-    const imgContent = gElCanvas.toDataURL('image/jpeg', 0.5)
-    elLink.href = imgContent
+function onDownloadMeme(elLink, ev) {
+    if (gIsDownloadable) return gIsDownloadable = false
+    ev.preventDefault()
+    gIsDownloadable = true
+    renderMeme()
+    setTimeout(function () {
+        const imgContent = gElCanvas.toDataURL('image/jpeg', 0.5)
+        elLink.href = imgContent
+        elLink.click()
+        renderMeme()
+    }, 0)
 }
 
-function onShareMeme(elForm, ev) {
-    readyCanvas()
+function onShareMeme(elLink, ev) {
+    if (gIsDownloadable) return gIsDownloadable = false
+    ev.preventDefault()
+    gIsDownloadable = true
+    renderMeme()
+    setTimeout(function () {
+        share()
+        elLink.click()
+        renderMeme()
+    }, 0)
+}
+
+function share() {
     const imgDataUrl = gElCanvas.toDataURL("image/jpeg")
 
     // A function to be called if request succeeds
@@ -176,11 +196,12 @@ function onShareMeme(elForm, ev) {
 
     }
 
-    doUploadImg(elForm, onSuccess);
+    doUploadImg(imgDataUrl, onSuccess);
 }
 
-function doUploadImg(elForm, onSuccess) {
-    var formData = new FormData(elForm);
+function doUploadImg(imgDataUrl, onSuccess) {
+    var formData = new FormData();
+    formData.append("img", imgDataUrl)
 
     fetch('http://ca-upload.com/here/upload.php', {
         method: 'POST',
