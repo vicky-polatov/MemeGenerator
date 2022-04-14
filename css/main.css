@@ -1,0 +1,16 @@
+/* SETUP  */
+
+@import "setup/vars.css";
+@import "setup/typography.css";
+
+/* BASE */
+
+@import "basic/base.css";
+@import "basic/helpers.css";
+
+/* COMPONENTS */
+@import "components/header.css";
+@import "components/search-area.css";
+@import "components/gallery.css";
+@import "components/editor.css";
+@import "components/footer.css";

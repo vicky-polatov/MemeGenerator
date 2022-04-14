@@ -1,0 +1,173 @@
+.meme-editor {
+    gap: 30px;
+    align-items: stretch;
+    max-height: 80vh;
+}
+
+.canvas-container {
+    background-color: var(--clr-container-bcg);
+    margin: auto;
+    border-radius: 1.875rem;
+    border: 6px solid var(--clr-container-bcg);
+    position: relative;
+    width: 50%;
+    max-height: 100%;
+}
+
+#main-canvas {
+    /* background-color: var(--clr-white); */
+    outline: 1px solid var(--clr-white);
+    display: block;
+    margin: 0 auto;
+    border-radius: 1.875rem;
+    position: absolute;
+    cursor: grab;
+}
+
+.tools-container {
+    background-color: var(--clr-container-bcg);
+    border-radius: 1.875rem;
+    padding: 1.25rem 2.5rem;
+    width: 50%;
+    min-height: 100%;
+    align-self: stretch;
+}
+
+.tools-container>* {
+    margin-bottom: 1.5625rem;
+}
+
+.tools-container [name="text"] {
+    font-family: Poppins, sans-serif;
+    height: 2.5rem;
+    width: 50%;
+    border-radius: 2.15rem;
+    text-align: center;
+}
+
+.tools-container .line-tools {
+    gap: 1.25rem;
+}
+
+.meme-editor .tools-btn {
+    background-color: var(--clr-white);
+    height: 2.5rem;
+    width: 2.5rem;
+    border: none;
+    border-radius: 0.4375rem;
+    box-shadow: 1px 3px 0px 0px rgb(61 61 61 / 42%);
+}
+
+.meme-editor img {
+    cursor: pointer;
+}
+
+.meme-editor .tools-btn:hover {
+    background-color: var(--clr-active-txt);
+}
+
+.meme-editor .tools-btn.delete {
+    background-color: red;
+}
+
+.meme-editor .tools-btn.delete:hover {
+    background-color: darkred;
+}
+
+.meme-editor .tools-btn.add {
+    background-color: green;
+}
+
+.meme-editor .tools-btn.add:hover {
+    background-color: darkgreen;
+}
+
+.meme-editor .tools-btn.switch-line {
+    background-color: PowderBlue;
+}
+
+.meme-editor .tools-btn.switch-line:hover {
+    background-color: SkyBlue;
+}
+
+[name="stroke-color"],
+[name="font-color"] {
+    visibility: hidden;
+    height: 1px;
+    width: 1px;
+}
+
+.text-tools {
+    background-color: skyblue;
+    border-radius: 0.625rem;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+    /* grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
+    gap: 1em;
+    padding: 0.625rem;
+    width: 80%;
+}
+
+
+.font-pick.tools-btn {
+    width: 100%;
+    grid-column: span 3;
+    border-radius: 0.44rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.impact {
+    font-family: Impact, sans-serif;
+}
+
+.lucida {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+.arial {
+    font-family: Arial, sans-serif;
+}
+
+.fin-btn-container {
+    width: 100%;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.fin-btn {
+    font-family: Poppins, sans-serif;
+    color: var(--clr-white);
+    font-size: 1.312rem;
+    line-height: 1.5;
+    border: none;
+    border-radius: 0.625rem;
+    padding: 0 1em;
+}
+
+.share-btn {
+    background-color: mediumslateblue;
+}
+
+.share-btn:hover {
+    background-color: slateblue;
+}
+
+.download-btn {
+    background-color: mediumorchid;
+    text-align: center;
+}
+
+.download-btn:hover {
+    background-color: darkorchid;
+}
+
+.save-btn {
+    background-color: mediumseagreen;
+}
+
+.save-btn:hover {
+    background-color: seagreen;
+}

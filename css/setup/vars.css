@@ -1,0 +1,8 @@
+:root {
+  --clr-white: #ffffff;
+  --clr-bcg: #22252c;
+  --clr-header-bcg: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+  --clr-active-txt: #21ac91;
+  --clr-container-bcg: #383b42;
+  --clr-search-line-bcg: #fefefe;
+}

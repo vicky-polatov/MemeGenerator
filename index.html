@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body onload="onGalleryInit()">
+    <header>
+        <div class="header-container flex align-center space-between">
+            <div class="logo flex align-center">
+                <img class="img-logo" src="/img/LOGO.png" onclick="onOpenGallery()"/>
+            </div>
+            <div class="header-btns flex align-center justify-end">
+                <nav>
+                    <ul class="header-nav flex align-center clean-list">
+                        <li class="flex align-center"><a class="flex align-center justify-center gallery active" onclick="onOpenGallery()">Gallery</a></li>
+                        <li class="flex align-center"><a class="flex align-center justify-center memes" onclick="onOpenMemes()">Memes</a></li>
+                        <!-- <li class="flex align-center"><a class="flex align-center justify-center about">About</a></li> -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="gallery-page column">
+            <nav class="search-area-container flex align-center space-between">
+                <div class="search-box flex align-center justify-center space-between">
+                    <input list="search-words" type="text" name="search-box" placeholder="search" onchange="onFilter(this, this.value)">
+                    <datalist id="search-words">
+                      <option value="all">
+                      <option value="baby">
+                      <option value="animals">
+                      <option value="cute">
+                      <option value="celebs">
+                  </datalist>
+                    <img src="img/ICONS/search-icon.png" />
+                </div>
+
+                <ul class="search-words clean-list flex align-center space-between">
+                    <!-- <li class="search-line">All</li>
+                    <li class="search-line">Baby</li>
+                    <li class="search-line">Animals</li>
+                    <li class="search-line">Cute</li>
+                    <li class="search-line">Celebs</li> -->
+                </ul>
+
+                <!-- <btn class="more flex align-center">More</btn> -->
+            </nav>
+
+            <main>
+                <div class="images-container justify-center">
+                    <!-- <img class="meme-img" class="img-1" src="img/meme-imgs (square)/1.jpg">` -->
+                </div>
+            </main>
+        </section>
+
+
+        <section class="meme-editor flex hidden">
+
+            <section class="canvas-container flex justify-center align-center">
+                <canvas id="main-canvas"></canvas>
+            </section>
+
+
+            <section class="tools-container flex column justify-center align-center">
+                <input type="text" name="text" id="text" autocomplete="off" oninput="onEditText(this)" disabled>
+                <div class="line-tools flex">
+                    <button class="tools-btn switch-line" onclick="onSwitchLine()"><img
+                      src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
+              </button>
+                    <button class="tools-btn add" onclick="onAddLine()">
+                  <img src="img/ICONS/add.png">
+              </button>
+                    <button class="tools-btn delete" onclick="onDeleteLine()">
+                  <img src="img/ICONS/trash.png">
+              </button>
+                </div>
+                <div class="text-tools">
+                    <button class="tools-btn font-up" onclick="onSetFontSize(2)">
+                  <img src="img/ICONS/increase font - icon.png">
+              </button>
+                    <button class="tools-btn font-down" onclick="onSetFontSize(-2)">
+                  <img src="img/ICONS/decrease font - icon.png">
+              </button class="tools-btn">
+              <button class="tools-btn align-right-btn" onclick="alignText('right')">
+                  <img src="img/ICONS/align-to-left.png" >
+              </button>
+                    <button class="tools-btn align-center-btn" onclick="alignText('center')">
+                  <img src="img/ICONS/center-text-alignment.png">
+              </button>
+                    <button class="tools-btn align-left-btn" onclick="alignText('left')">
+                <img src="img/ICONS/align-to-right.png">
+              </button>
+                    <select class="tools-btn font-pick" onchange="setFontFamily(this)">
+                  <option value="Impact" class="impact" >IMPACT</option>
+                  <option value="Poppins" class="lucida">LUCIDA</option>
+                  <option value="Arial" class="arial">ARIAL</option>
+              </select>
+                    <label>
+                  <img class="tools-btn color-btn" src="img/ICONS/paint-board-and-brush.png">
+                  <input type="color" name="stroke-color" oninput="onColorChange(this, false)">
+              </label>
+                    <label>
+                  <img class="tools-btn color-btn" src="img/ICONS/paint-board-and-brush.png">
+                  <input type="color" name="font-color" oninput="onColorChange(this, true)">
+              </label>
+                </div>
+                <div class="fin-btn-container flex">
+                    <button class="fin-btn save-btn" onclick="onSaveMeme()">Save</button>
+                    <button class="fin-btn share-btn" onclick=" onShareMeme()">Share</button>
+                    <a href="#" class="fin-btn download-btn"  onclick="onDownloadMeme(this)" download="my-meme.jpg" data-trans="Download">download</a>
+                </div>
+            </section>
+        </section>
+
+        <section class="saved-memes hidden">
+            <div class="memes-container justify-center"></div>
+        </section>
+    </main>
+
+    <footer>
+        <small>&#169; Vicky Polatov</small>
+    </footer>
+    </main>
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/editor-service.js"></script>
+    <script src="js/gallery-service.js"></script>
+    <script src="js/editor-controller.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/saved-memes-page-controller.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+.gallery-page,
+.saved-memes {
+    background-color: var(--clr-container-bcg);
+    border-radius: 30px;
+    min-height: 80vh;
+}
+
+.search-area-container {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    gap: 10px;
+    width: 100%;
+}
+
+.search-box {
+    font-family: Poppins-light, sans-serif;
+    min-width: 20%;
+    height: 3.125rem;
+    background-color: var(--clr-bcg);
+    border-radius: 1.5625rem;
+    color: var(--clr-search-line-bcg);
+    margin: 1rem;
+    margin-inline-start: 2rem;
+    padding: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-self: center;
+}
+
+[name="search-box"] {
+    border: none;
+    background: none;
+    color: var(--clr-active-txt);
+    flex-basis: 3.125rem;
+    padding-inline-start: 1.25rem;
+    font-size: 1.312rem;
+    min-height: 3.125rem;
+}
+
+.search-box img {
+    padding-inline-end: 1rem;
+    width: 70%;
+    height: 70%;
+}
+
+[name="search-box"]:focus-visible,
+[name="text"]:focus-visible {
+    outline: none;
+}
+
+.search-words {
+    background-color: rgb(254, 254, 254, 0.4);
+    flex-wrap: wrap;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-inline-end: 2rem;
+    border-radius: 2rem;
+    min-height: 3.125rem;
+    min-width: 50%;
+}
+
+.search-line {
+    color: var(--clr-search-line-bcg);
+    margin-inline-start: 0.625rem;
+    margin-inline-end: 0.625rem;
+    align-self: center;
+    cursor: pointer;
+}
+
+
+.more {
+    color: var(--clr-search-line-bcg);
+    background: var(--clr-header-bcg);
+    height: 2rem;
+    padding: 1rem;
+    margin-inline-end: 2rem;
+    border-radius: 1.5rem;
+    min-width: 7%;
+}
+
+.search-line:hover {
+    color: var(--clr-active-txt);
+}

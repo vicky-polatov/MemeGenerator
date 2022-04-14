@@ -1,0 +1,46 @@
+header {
+  background: var(--clr-header-bcg);
+  height: 73px;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2.3125rem;
+}
+
+.header-container {
+  height: 100%;
+  width: 100%;
+  padding-inline-start: 2rem;
+  padding-inline-end: 2rem;
+}
+
+header .logo {
+  width: fit-content;
+  height: 100%;
+  margin-inline-start: 1rem;
+  cursor: pointer;
+}
+
+.img-logo {
+  width: 13rem;
+}
+
+.header-btns {
+  margin-inline-end: 1rem;
+}
+
+.header-btns a {
+  font-family: Poppins-medium, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin-inline-start: 2.5rem;
+  color: var(--clr-white);
+}
+
+.header-btns a.active {
+  background-color: var(--clr-white);
+  color: var(--clr-active-txt);
+  border-radius: 1.25rem;
+  height: 2.5rem;
+  width: 7.25rem;
+}
