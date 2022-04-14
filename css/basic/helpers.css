@@ -32,6 +32,6 @@
   padding: 0;
 }
 
-.hidden {
+section.hidden {
   display: none;
 }

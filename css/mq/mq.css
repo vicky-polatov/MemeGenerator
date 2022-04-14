@@ -1,29 +1,75 @@
-/* MOBILE ONLY */
-@media (max-width: 450px) {
+@media (max-width: 542px) {
+  html{
+    font-size: 10px;
+   }
 
-}
-  
-  
-  /* MEDIUM */
-@media screen and (min-width: 450px) {
-    .meme-editor{
-        flex-direction: column;
-        
-    }
-
-    .canvas-container {
-        flex-basis: 35%;
-  
+  .meme-editor .tools-btn:not(.add):not(.delete):not(.switch-line) {
+    height: fit-content;
+    width: fit-content;
   }
-  
+
+}
+
+@media (min-width: 542px) {
+  html{
+    font-size: 14px;
+   }
+
+   .fin-btn {
+    display: unset;
+    width: unset;
+  }
+   
+    .meme-editor {
+    display: inline;
+   }
+
+   .font-pick.tools-btn {
+    max-width: 81%;
+  }
+
+   .tools-container {
+    height: 289px;
+   }
 
 }
   
-  /* LARGE */
-  @media screen and (min-width: 1120px) {
-    .meme-editor{
-        flex-direction: unset;
+    @media screen and (min-width: 650px) {
+
+    .font-pick.tools-btn {
+      /* max-width: 81%; */
     }
+
+    .tools-container {
+     /* aspect-ratio: 2/1; */
+    }
+
+    .text-tools{
+      align-content: center;
+    }
+
+}
+  
+  @media screen and (min-width: 990px) {
+    html{
+      font-size: 16px;
+   }
+    .meme-editor {
+      display: flex;
+   }
+
+   .tools-container {
+     height: unset;
+    align-self: stretch;
+    aspect-ratio: unset;
+    margin: unset;
+   }
+
+ .text-tools{
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    max-height: 70vh;
+   }
 
   }
   
