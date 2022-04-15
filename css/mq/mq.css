@@ -1,4 +1,5 @@
-@media (max-width: 542px) {
+  /* MOBILE ONLY */
+@media (max-width: 650px) {
   html{
     font-size: 10px;
    }
@@ -8,11 +9,92 @@
     width: fit-content;
   }
 
+  .search-box{
+    display: none;
+  }
+
+  /* //////////////////////////////// */
+
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: rgba(19, 18, 18, 0.9);
+    height: 100vh;
+    min-width: 220px;
+    border-left: solid 1px black;
+    padding-block-start: 10px;
+    transform: translateX(100%);
+    transition: transform .6s, box-shadow .6s;
+    z-index: 1;
 }
 
+body.menu-open .header-nav {
+  transform: translateX(0);
+  box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
+}
+
+.header-btns .header-nav a {
+  display: block;
+  display: flex;
+  align-items: center;
+  color: var(--clr-search-line-bcg);
+  transition: background-color .3s;
+  margin-top: 0;
+  margin-inline-start: 0;
+  height: 50px;
+  font-size: 20px;
+}
+
+.header-btns .header-nav a:hover {
+  opacity: 80%;
+}
+
+.header-btns .header-nav li {
+  display: block;
+  width: 100%;
+  height: 75px;
+  border-bottom: solid 1px var(--clr-bcg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-btns a.active{
+  background-color: transparent;
+  color: var(--clr-active-txt);
+  border-bottom: 3px solid var(--clr-active-txt);
+  border-top: 3px solid var(--clr-active-txt);
+}
+
+body.menu-open .screen{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(37, 36, 36, 0.712);
+}
+
+.screen{
+  position: static;
+  width: 0;
+  height: 0;
+}
+
+}
+
+  /* SMALL */
 @media (min-width: 542px) {
+
   html{
     font-size: 14px;
+   }
+
+  .header-container{
+    padding-inline-start: 2rem;
+    padding-inline-end: 2rem;
    }
 
    .fin-btn {
@@ -32,24 +114,23 @@
     height: 289px;
    }
 
+   .search-area-container ul.search-words{
+    min-width: 50%;
+  }
 }
   
+  /* MEDIUM */
     @media screen and (min-width: 650px) {
-
-    .font-pick.tools-btn {
-      /* max-width: 81%; */
-    }
-
-    .tools-container {
-     /* aspect-ratio: 2/1; */
+      .btn-menu {
+        display: none;
     }
 
     .text-tools{
       align-content: center;
     }
-
 }
-  
+
+  /* LARGE */
   @media screen and (min-width: 990px) {
     html{
       font-size: 16px;
@@ -70,6 +151,5 @@
     margin-bottom: 1.25rem;
     max-height: 70vh;
    }
-
   }
   

@@ -10,12 +10,14 @@
 </head>
 
 <body onload="onGalleryInit()">
+  <div class="screen" onclick="onToggleMenu()"></div>
     <header>
         <div class="header-container flex align-center space-between">
             <div class="logo flex align-center">
                 <img class="img-logo" src="img/LOGO.png" onclick="onOpenGallery()"/>
             </div>
             <div class="header-btns flex align-center justify-end">
+                <button class="btn-menu" onclick="onToggleMenu()">☰</button>
                 <nav>
                     <ul class="header-nav flex align-center clean-list">
                         <li class="flex align-center"><a class="flex align-center justify-center gallery active" onclick="onOpenGallery()">Gallery</a></li>
@@ -27,7 +29,7 @@
         </div>
     </header>
     
-    <main>
+    <main class="main-screen">
         <section class="gallery-page column">
             <nav class="search-area-container flex align-center space-between">
                 <div class="search-box flex align-center justify-center space-between">
@@ -103,7 +105,7 @@
                   <option value="Arial" class="arial">ARIAL</option>
               </select>
                     <label>
-                  <img class="tools-btn color-btn" src="img/ICONS/paint-board-and-brush.png">
+                  <img class="tools-btn color-btn" src="img/ICONS/text stroke.png">
                   <input type="color" name="stroke-color" oninput="onColorChange(this, false)">
               </label>
                     <label>

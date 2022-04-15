@@ -53,3 +53,7 @@ function setActivePage(activePage) {
     })
     if (activePage) activePage.classList.add('active')
 }
+
+function onToggleMenu() {
+    document.body.classList.toggle("menu-open");
+}
