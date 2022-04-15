@@ -32,3 +32,10 @@
     opacity: 70%;
     outline: 2px solid whitesmoke;
 }
+
+.memes-container H1 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    color: var(--clr-active-txt);
+}

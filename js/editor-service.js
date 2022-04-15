@@ -28,7 +28,8 @@ function getMeme() {
 
 function saveMeme(memeDataUrl) {
     if (!gSavedMemes) gSavedMemes = [];
-    gSavedMemes.push(memeDataUrl);
+    gSavedMemes.push({ dataUrl: memeDataUrl, id: makeId(), memeDB: gMeme });
+    console.log(gSavedMemes);
     saveToStorage(SAVED_MEMES_KEY, gSavedMemes);
 }
 
@@ -94,7 +95,6 @@ function getEvPos(ev) {
 
 function isLineClicked(clickedPos) {
     const currLine = getLine()
-    console.log(currLine);
     const distance = Math.sqrt((currLine.x - clickedPos.x) ** 2 + (currLine.y - clickedPos.y) ** (-2))
     return distance <= currLine.size
 }

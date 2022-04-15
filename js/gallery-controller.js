@@ -8,7 +8,7 @@ function onGalleryInit() {
 function renderImgs() {
     const imgs = getImgsForDisplay()
     let strHTMLs = imgs.map(img => {
-        return `<img class="meme-img" class="img-${img.id}" src="${img.url}" onclick="onSetImg(${img.id})">`
+        return `<img class="meme-img img-${img.id}" src="${img.url}" onclick="onSetImg(${img.id})">`
     })
     document.querySelector('.images-container').innerHTML = strHTMLs.join('')
 }
