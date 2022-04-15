@@ -33,6 +33,18 @@ function onFilter(elInp, value) {
     onGalleryInit()
 }
 
+function setActivePage(activePage) {
+    const links = document.querySelectorAll('header nav a.active')
+    links.forEach(link => {
+        link.classList.remove('active')
+    })
+    if (activePage) activePage.classList.add('active')
+}
+
+function onToggleMenu() {
+    document.body.classList.toggle("menu-open");
+}
+
 function onSetImg(imgId) {
     onOpenEditor()
     initMeme(imgId)
@@ -44,16 +56,4 @@ function onOpenGallery() {
     document.querySelector('.saved-memes').classList.add('hidden')
     document.querySelector('.meme-editor').classList.add('hidden')
     document.querySelector('.gallery-page').classList.remove('hidden')
-}
-
-function setActivePage(activePage) {
-    const links = document.querySelectorAll('header nav a.active')
-    links.forEach(link => {
-        link.classList.remove('active')
-    })
-    if (activePage) activePage.classList.add('active')
-}
-
-function onToggleMenu() {
-    document.body.classList.toggle("menu-open");
 }

@@ -6,6 +6,11 @@ let gFilterBy = 'all'
 
 _createImgs()
 
+
+function getKeyWords() {
+    return gKeyWords;
+}
+
 function setFilter(keyWord) {
     if (!gKeyWords[keyWord] && gKeyWords[keyWord] == !0) return
     if (gKeyWords[keyWord] < 20) gKeyWords[keyWord]++
@@ -20,10 +25,6 @@ function setFilter(keyWord) {
     gFilterBy = keyWord
 }
 
-function getKeyWords() {
-    return gKeyWords;
-}
-
 function getImgsForDisplay() {
     if (gFilterBy === 'all') return gImgs;
     let imgs = gImgs.filter(img => {
@@ -33,7 +34,6 @@ function getImgsForDisplay() {
 }
 
 function _createImgs() {
-
     gImgs = [];
     gImgs.push(_createImg(1, ['celebs']));
     gImgs.push(_createImg(2, ['cute', 'animals']));
@@ -53,7 +53,6 @@ function _createImgs() {
     gImgs.push(_createImg(16, ['celebs']));
     gImgs.push(_createImg(17, ['celebs']));
     gImgs.push(_createImg(18, ['celebs', 'cute']));
-
 }
 
 function _createImg(id, keyWords) {
