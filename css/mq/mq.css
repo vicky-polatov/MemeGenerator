@@ -24,13 +24,13 @@
     border-left: solid 1px black;
     padding-block-start: 10px;
     transform: translateX(100%);
-    transition: transform .6s, box-shadow .6s;
     z-index: 1;
-}
-
-body.menu-open .header-nav {
-  transform: translateX(0);
-  box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
+  }
+  
+  body.menu-open .header-nav {
+    transform: translateX(0);
+    box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
+    transition: transform .6s, box-shadow .6s;
 }
 
 .header-btns .header-nav a {

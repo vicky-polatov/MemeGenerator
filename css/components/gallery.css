@@ -36,8 +36,9 @@
 }
 
 .meme-img:hover {
-    opacity: 70%;
+    /* opacity: 70%; */
     outline: 2px solid whitesmoke;
+    box-shadow: 0 0 10px 3px whitesmoke;
 }
 
 .memes-container H1 {
