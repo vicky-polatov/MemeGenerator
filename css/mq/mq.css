@@ -1,5 +1,5 @@
   /* MOBILE ONLY */
-@media (max-width: 650px) {
+@media (max-width: 540px) {
   html{
     font-size: 10px;
    }
@@ -12,8 +12,6 @@
   .search-box{
     display: none;
   }
-
-  /* //////////////////////////////// */
 
   .header-nav {
     position: fixed;
@@ -86,7 +84,7 @@ body.menu-open .screen{
 }
 
   /* SMALL */
-@media (min-width: 542px) {
+@media (min-width: 541px) {
 
   html{
     font-size: 14px;
@@ -95,6 +93,10 @@ body.menu-open .screen{
   .header-container{
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
+   }
+
+   .btn-menu {
+    display: none;
    }
 
    .fin-btn {
@@ -121,10 +123,6 @@ body.menu-open .screen{
   
   /* MEDIUM */
     @media screen and (min-width: 650px) {
-      .btn-menu {
-        display: none;
-    }
-
     .text-tools{
       align-content: center;
     }
@@ -152,4 +150,3 @@ body.menu-open .screen{
     max-height: 70vh;
    }
   }
-  

@@ -1,10 +1,3 @@
-.gallery-page,
-.saved-memes {
-    background-color: var(--clr-container-bcg);
-    border-radius: 30px;
-    min-height: 80vh;
-}
-
 .search-area-container {
     margin-bottom: 1rem;
     padding-top: 1rem;
@@ -68,7 +61,6 @@
     align-self: center;
     cursor: pointer;
 }
-
 
 .more {
     color: var(--clr-search-line-bcg);

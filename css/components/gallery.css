@@ -1,3 +1,10 @@
+.gallery-page,
+.saved-memes {
+    background-color: var(--clr-container-bcg);
+    border-radius: 30px;
+    min-height: 80vh;
+}
+
 .gallery-page label {
     width: 200px;
     margin: 0;
