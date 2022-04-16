@@ -52,6 +52,20 @@ function onSetImg(imgId) {
     onEditorInit()
 }
 
+function onImgInput(ev) {
+    loadImageFromInput(ev, setUserImg);
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    var reader = new FileReader()
+    reader.onload = function (event) {
+        var img = new Image()
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+
 function onOpenGallery() {
     setActivePage(document.querySelector('header .gallery'))
     document.querySelector('.saved-memes').classList.add('hidden')
@@ -59,3 +73,4 @@ function onOpenGallery() {
     document.querySelector('.gallery-page').classList.remove('hidden')
     document.querySelector('.trans-btn-container').classList.remove('hidden')
 }
+

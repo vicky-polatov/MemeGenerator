@@ -35,11 +35,19 @@ function renderMeme() {
     // clearCanvas()
     const meme = getMeme()
     const img = new Image()
-    img.src = `img/meme-imgs-square/${meme.selectedImgId}.jpg`
+
+    if (!meme.selectedImgId) {
+        if (!gUserImg) return
+        img.src = gUserImg.src
+    } else {
+        img.src = `img/meme-imgs-square/${meme.selectedImgId}.jpg`
+    }
+
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawLines()
     }
+
 }
 
 function clearCanvas() {

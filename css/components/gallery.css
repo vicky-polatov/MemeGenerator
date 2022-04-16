@@ -60,3 +60,33 @@
     transform: translate(-50%);
     color: var(--clr-active-txt);
 }
+
+.upload-container {
+    background-color: var(--clr-bcg);
+    width: 30px;
+    height: 30px;
+    margin-inline-start: 2rem;
+    border-radius: 40px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.upload-container label {
+    color: var(--clr-white);
+    align-self: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+   cursor: pointer;
+  }
+  
+  [name="file"] {
+    position: absolute;
+    color: transparent;
+    z-index: -1;
+    cursor: pointer;
+  }
+  
+  .upload-container:hover {
+    background-color: var(--clr-active-txt);
+  }
+  

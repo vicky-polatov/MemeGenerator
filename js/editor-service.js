@@ -5,6 +5,7 @@ const SAVED_MEMES_KEY = 'SAVED_MEMES'
 let gMeme
 let gSavedMemes
 let gStartPos
+let gUserImg
 
 function initMeme(selectedImgId = 0) {
     gMeme = {
@@ -121,4 +122,11 @@ function _createLine(txt = '', size, fontFamily = 'Impact',
         strokeColor,
         isSelected: true
     }
+}
+
+function setUserImg(img) {
+    onOpenEditor()
+    initMeme()
+    gUserImg = img
+    onEditorInit()
 }
