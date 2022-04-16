@@ -36,7 +36,3 @@ section.hidden,
 div.hidden {
   display: none;
 }
-
-body.rtl {
-  direction: rtl;
-}

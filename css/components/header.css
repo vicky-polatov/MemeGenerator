@@ -53,5 +53,5 @@ header .logo {
   font-size: 30px;
   color: var(--clr-bcg);
   position: absolute;
-  inset-inline-end: 1rem;
+  right: 1rem;
 }
