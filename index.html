@@ -20,26 +20,29 @@
                 <button class="btn-menu" onclick="onToggleMenu()">☰</button>
                 <nav>
                     <ul class="header-nav flex align-center clean-list">
-                        <li class="flex align-center"><a class="flex align-center justify-center gallery active" onclick="onOpenGallery()">Gallery</a></li>
-                        <li class="flex align-center"><a class="flex align-center justify-center memes" onclick="onOpenMemes()">Memes</a></li>
-                        <!-- <li class="flex align-center"><a class="flex align-center justify-center about">About</a></li> -->
+                        <li class="flex align-center"><a class="flex align-center justify-center gallery active" data-trans="gallery" onclick="onOpenGallery()">Gallery</a></li>
+                        <li class="flex align-center"><a class="flex align-center justify-center memes" data-trans="memes" onclick="onOpenMemes()">Memes</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
+    <div class="trans-btn-container flex align-center justify-end">
+        <button class="trans-btn" onclick="setLang(this)">Español</button>
+    </div>
     
     <main class="main-screen">
         <section class="gallery-page column">
             <nav class="search-area-container flex align-center space-between">
                 <div class="search-box flex align-center justify-center space-between">
-                    <input list="search-words" type="text" name="search-box" placeholder="search" onchange="onFilter(this, this.value)">
+                    <input list="search-words" type="text" name="search-box" data-trans="search" placeholder="search" onchange="onFilter(this, this.value)">
                     <datalist id="search-words">
-                      <option value="all">
-                      <option value="baby">
-                      <option value="animals">
-                      <option value="cute">
-                      <option value="celebs">
+                      <option data-trans="search-all">
+                      <option data-trans="search-baby">
+                      <option data-trans="search-animals">
+                      <option data-trans="search-cute">
+                      <option data-trans="search-celebs">
                   </datalist>
                     <img src="img/ICONS/search-icon.png" />
                 </div>
@@ -71,7 +74,7 @@
 
 
             <section class="tools-container flex column justify-center align-center">
-                <input type="text" name="text" id="text" autocomplete="off" oninput="onEditText(this)" disabled>
+                <input type="text" name="text" id="text" autocomplete="off" data-trans="text" oninput="onEditText(this)" disabled>
                 <div class="line-tools flex">
                     <button class="tools-btn switch-line" onclick="onSwitchLine()"><img
                       src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
@@ -114,16 +117,16 @@
               </label>
                 </div>
                 <div class="fin-btn-container flex">
-                    <button class="fin-btn save-btn" onclick="onSaveMeme(this, event)">Save</button>
-                    <button class="fin-btn share-btn" onclick=" onShareMeme(this, event)">Share</button>
-                    <a href="#" class="fin-btn download-btn"  onclick="onDownloadMeme(this, event)" download="my-meme.jpg" data-trans="Download">download</a>
+                    <button class="fin-btn save-btn" data-trans="save" onclick="onSaveMeme(this, event)">Save</button>
+                    <button class="fin-btn share-btn" data-trans="share" onclick=" onShareMeme(this, event)">Share</button>
+                    <a href="#" class="fin-btn download-btn" data-trans="download" onclick="onDownloadMeme(this, event)" download="my-meme.jpg">download</a>
                 </div>
             </section>
         </section>
 
         <section class="saved-memes hidden">
             <div class="memes-container justify-center">
-                <h1>NO MEME HAS BEEN SAVED YET</h1>
+                <h1 data-trans="saved-memes-msg">NO MEME HAS BEEN SAVED YET</h1>
             </div>
         </section>
     </main>
@@ -134,6 +137,7 @@
     </main>
 
     <script src="js/utils.js"></script>
+    <script src="js/i18n-controller.js"></script>
     <script src="js/storage-service.js"></script>
     <script src="js/saved-memes-service.js"></script>
     <script src="js/editor-service.js"></script>

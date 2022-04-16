@@ -85,4 +85,22 @@ function onUp() {
 }
 
 
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 
+
+function isLineClicked(clickedPos) {
+    const currLine = getLine()
+
+    const textWidth = gCtx.measureText(currLine.txt).width
+    const x = currLine.x - textWidth / 2
+    const xEnd = currLine.x + textWidth * 2
+    const y = currLine.y - currLine.size / 1.25
+    const yEnd = currLine.y + currLine.size * 1.25
+
+    return (clickedPos.x > x && clickedPos.x < xEnd && clickedPos.y > y && clickedPos.y < yEnd)
+
+    // const distance = Math.sqrt((currLine.x - clickedPos.x) ** 2 + (currLine.y - clickedPos.y) ** (-2))
+    // return distance <= currLine.size
+}

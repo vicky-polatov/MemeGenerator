@@ -3,6 +3,7 @@
 function onGalleryInit() {
     renderImgs()
     renderSearchWords()
+    doTrans()
 }
 
 function renderImgs() {
@@ -19,7 +20,7 @@ function renderSearchWords() {
 
     let strHTML = keyWords.map(keyWord => {
         const fontSize = keyWordMap[keyWord] + 14
-        return `<li class="search-line flex align-center" style="font-size: ${fontSize}px" onclick="onFilter(null, '${keyWord}')"> ${keyWord}</li>`
+        return `<li class="search-line flex align-center" style="font-size: ${fontSize}px" data-trans="search-${keyWord}" onclick="onFilter(null, '${keyWord}')"> ${keyWord}</li>`
     })
     document.querySelector('.search-words').innerHTML = strHTML.join('')
 }

@@ -11,6 +11,7 @@ function onEditorInit() {
     addTouchEventListeners()
     resizeCanvas()
     renderMeme()
+    doTrans()
 }
 
 function onOpenEditor() {
@@ -52,7 +53,7 @@ function onAddLine(txt = 'your text') {
     selectLine()
     elInp.disabled = false
     elInp.value = ''
-    elInp.placeholder = 'Type your text here'
+    doTrans()
     renderMeme()
 }
 

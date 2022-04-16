@@ -12,9 +12,36 @@ function getKeyWords() {
 }
 
 function setFilter(keyWord) {
-    if (!gKeyWords[keyWord] && gKeyWords[keyWord] == !0) return
-    if (gKeyWords[keyWord] < 20) gKeyWords[keyWord]++
+    switch (keyWord) {
+        case 'todos':
+        case 'הכל':
+            keyWord = 'all'
+            break
+        case 'Bebés':
+        case 'תינוקות':
+            keyWord = 'baby'
+            break
+        case 'animales':
+        case 'בעלי חיים':
+            keyWord = 'animals'
+            break
+        case 'encantadores':
+        case 'מתוקים':
+            keyWord = 'cute'
+            break
+        case 'famosos':
+        case 'מפורסמים':
+            keyWord = 'celebs'
+            break
+    }
 
+    if (!gKeyWords[keyWord] && gKeyWords[keyWord] == !0) return
+    gKeyWords[keyWord]++
+
+    //** */
+    // if (gKeyWords[keyWord] < 20) gKeyWords[keyWord]++
+
+    //** */
     // if (gKeyWords[keyWord] < 10) gKeyWords[keyWord] = gKeyWords[keyWord] + 2
     // else gKeyWords[keyWord]++
     //         const Keys = Object.keys(gKeyWords)
