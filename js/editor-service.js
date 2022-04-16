@@ -95,9 +95,26 @@ function getEvPos(ev) {
 }
 
 function isLineClicked(clickedPos) {
-    const currLine = getLine()
-    const distance = Math.sqrt((currLine.x - clickedPos.x) ** 2 + (currLine.y - clickedPos.y) ** (-2))
-    return distance <= currLine.size
+    const elTxtInput = document.querySelector('[name="text"]')
+    let selectedLine
+    selectedLine = gMeme.lines.findIndex(line => {
+        const textWidth = gCtx.measureText(line.txt)
+        const halfWidth = textWidth.width / 2
+        const height = textWidth.fontBoundingBoxAscent + textWidth.fontBoundingBoxDescent
+        return (
+            clickedPos.y < line.y &&
+            clickedPos.y > line.y - height &&
+            clickedPos.x > line.x - halfWidth &&
+            clickedPos.x < line.x + halfWidth
+        )
+    })
+    if (selectedLine !== -1) {
+        gMeme.selectedLineIdx = selectedLine
+        elTxtInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
+    } else {
+        elTxtInput.value = ''
+    }
+    renderMeme()
 }
 
 function setLineDrag(isDrag) {

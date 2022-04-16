@@ -94,29 +94,31 @@ function drawLines() {
 }
 
 function drawLine(line) {
-    const txt = line.txt
-    gCtx.font = `${line.size}px ${line.fontFamily}`
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = line.strokeColor
-    gCtx.fillStyle = line.fontColor
-    gCtx.textAlign = line.align
+    gCtx.font = `${line.size}px ${line.fontFamily}` //
+    gCtx.lineWidth = 2 //
+    gCtx.strokeStyle = line.strokeColor // 
+    gCtx.fillStyle = line.fontColor // 
+    gCtx.textAlign = line.align //
+
     if (!line.x) line.x = gElCanvas.width / 2
     if (!line.y) line.y = gElCanvas.height / 2
-    gCtx.fillText(txt, line.x, line.y)
-    gCtx.strokeText(txt, line.x, line.y)
+
+    gCtx.beginPath()
+    gCtx.fillText(line.txt, line.x, line.y)
+    gCtx.strokeText(line.txt, line.x, line.y)
+    gCtx.closePath()
     if (line.isSelected) highlightLine()
 }
 
 function highlightLine() {
     if (gIsDownloadable) return
     const line = getLine()
-    const txt = line.txt
-    const textWidth = gCtx.measureText(txt).width
+    const textWidth = gCtx.measureText(line.txt)
     gCtx.beginPath()
-    const x = line.x - textWidth
-    const y = line.y - line.size * 1.25
-    const width = textWidth * 2
-    const height = line.size * 2
+    const x = line.x - (textWidth.width / 2) - 5
+    const y = line.y - parseInt(line.size) + 1
+    const width = textWidth.width + 10
+    const height = textWidth.fontBoundingBoxAscent + textWidth.fontBoundingBoxDescent
     gCtx.rect(x, y, width, height)
     gCtx.strokeStyle = 'white'
     gCtx.lineWidth = 2
@@ -246,14 +248,18 @@ function doUploadImg(imgDataUrl, onSuccess) {
 }
 
 function onDown(ev) {
+    ev.preventDefault
     const pos = getEvPos(ev)
-    if (!isLineClicked(pos)) return
-    setLineDrag(true);
+    isLineClicked(pos)
+    if (gMeme.selectedLineIdx !== -1) {
+        setLineDrag(true)
+        document.querySelector('#main-canvas').style.cursor = 'grabbing'
+    }
     gStartPos = pos
-    document.querySelector('#main-canvas').style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
+    ev.preventDefault()
     const line = getLine()
     if (!line) return
     if (line.isDrag) {
