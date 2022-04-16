@@ -82,8 +82,6 @@ function getTrans(transKey) {
 
 function doTrans() {
     const els = document.querySelectorAll('[data-trans]')
-    console.log(els);
-
     els.forEach(el => {
         const transKey = el.dataset.trans
 

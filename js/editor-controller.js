@@ -5,7 +5,7 @@ let gCtx = gElCanvas.getContext('2d')
 let gIsDownloadable = false
 
 function onEditorInit() {
-    gIsDownloadable = false;
+    gIsDownloadable = false
     addResizeEventListener()
     addMouseEventListeners()
     addTouchEventListeners()
@@ -156,7 +156,7 @@ function onSetFontSize(diffSize) {
 }
 
 function alignText(alignTo) {
-    console.log(alignTo);
+    console.log(alignTo)
     const currLine = getLine()
     currLine.align = alignTo
     renderMeme()
@@ -219,7 +219,7 @@ function share() {
 
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {
-        console.log('uploadedImgUrl', uploadedImgUrl);
+        console.log('uploadedImgUrl', uploadedImgUrl)
 
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
 
@@ -227,11 +227,11 @@ function share() {
 
     }
 
-    doUploadImg(imgDataUrl, onSuccess);
+    doUploadImg(imgDataUrl, onSuccess)
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {
-    var formData = new FormData();
+    var formData = new FormData()
     formData.append("img", imgDataUrl)
 
     fetch('http://ca-upload.com/here/upload.php', {
@@ -273,7 +273,7 @@ function onMove(ev) {
 }
 
 function onUp() {
-    setLineDrag(false);
+    setLineDrag(false)
     document.querySelector('#main-canvas').style.cursor = 'grab'
 }
 

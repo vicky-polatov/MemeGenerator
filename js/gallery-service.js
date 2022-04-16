@@ -8,7 +8,7 @@ _createImgs()
 
 
 function getKeyWords() {
-    return gKeyWords;
+    return gKeyWords
 }
 
 function setFilter(keyWord) {
@@ -57,29 +57,29 @@ function getImgsForDisplay() {
     let imgs = gImgs.filter(img => {
         return img.keyWords.includes(gFilterBy);
     })
-    return imgs;
+    return imgs
 }
 
 function _createImgs() {
-    gImgs = [];
-    gImgs.push(_createImg(1, ['celebs']));
-    gImgs.push(_createImg(2, ['cute', 'animals']));
-    gImgs.push(_createImg(3, ['baby', 'animals', 'cute']));
-    gImgs.push(_createImg(4, ['animals', 'cute']));
-    gImgs.push(_createImg(5, ['baby', 'cute']));
-    gImgs.push(_createImg(6, ['celebs']));
-    gImgs.push(_createImg(7, ['baby', 'cute']));
-    gImgs.push(_createImg(8, ['celebs']));
-    gImgs.push(_createImg(9, ['baby', 'cute']));
-    gImgs.push(_createImg(10, ['celebs']));
-    gImgs.push(_createImg(11, ['celebs']));
-    gImgs.push(_createImg(12, ['celebs']));
-    gImgs.push(_createImg(13, ['celebs']));
-    gImgs.push(_createImg(14, ['celebs']));
-    gImgs.push(_createImg(15, ['celebs']));
-    gImgs.push(_createImg(16, ['celebs']));
-    gImgs.push(_createImg(17, ['celebs']));
-    gImgs.push(_createImg(18, ['celebs', 'cute']));
+    gImgs = []
+    gImgs.push(_createImg(1, ['celebs']))
+    gImgs.push(_createImg(2, ['cute', 'animals']))
+    gImgs.push(_createImg(3, ['baby', 'animals', 'cute']))
+    gImgs.push(_createImg(4, ['animals', 'cute']))
+    gImgs.push(_createImg(5, ['baby', 'cute']))
+    gImgs.push(_createImg(6, ['celebs']))
+    gImgs.push(_createImg(7, ['baby', 'cute']))
+    gImgs.push(_createImg(8, ['celebs']))
+    gImgs.push(_createImg(9, ['baby', 'cute']))
+    gImgs.push(_createImg(10, ['celebs']))
+    gImgs.push(_createImg(11, ['celebs']))
+    gImgs.push(_createImg(12, ['celebs']))
+    gImgs.push(_createImg(13, ['celebs']))
+    gImgs.push(_createImg(14, ['celebs']))
+    gImgs.push(_createImg(15, ['celebs']))
+    gImgs.push(_createImg(16, ['celebs']))
+    gImgs.push(_createImg(17, ['celebs']))
+    gImgs.push(_createImg(18, ['celebs', 'cute']))
 }
 
 function _createImg(id, keyWords) {

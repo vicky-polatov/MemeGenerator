@@ -43,7 +43,7 @@ function setActivePage(activePage) {
 }
 
 function onToggleMenu() {
-    document.body.classList.toggle("menu-open");
+    document.body.classList.toggle("menu-open")
 }
 
 function onSetImg(imgId) {
@@ -53,7 +53,7 @@ function onSetImg(imgId) {
 }
 
 function onImgInput(ev) {
-    loadImageFromInput(ev, setUserImg);
+    loadImageFromInput(ev, setUserImg)
 }
 
 function loadImageFromInput(ev, onImageReady) {

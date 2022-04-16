@@ -28,10 +28,10 @@ function getMeme() {
 }
 
 function saveMeme(memeDataUrl) {
-    if (!gSavedMemes) gSavedMemes = [];
-    gSavedMemes.push({ dataUrl: memeDataUrl, id: makeId(), memeDB: gMeme });
-    console.log(gSavedMemes);
-    saveToStorage(SAVED_MEMES_KEY, gSavedMemes);
+    if (!gSavedMemes) gSavedMemes = []
+    gSavedMemes.push({ dataUrl: memeDataUrl, id: makeId(), memeDB: gMeme })
+    console.log(gSavedMemes)
+    saveToStorage(SAVED_MEMES_KEY, gSavedMemes)
 }
 
 function getSavedMemes() {
@@ -79,12 +79,12 @@ function setColor(color, elChangeComponent) {
 function getEvPos(ev) {
     const touchEvs = ['touchstart', 'touchmove', 'touchend']
 
-    var pos = {
+    let pos = {
         x: ev.offsetX,
         y: ev.offsetY
     }
     if (touchEvs.includes(ev.type)) {
-        ev.preventDefault();
+        ev.preventDefault()
         ev = ev.changedTouches[0]
         pos = {
             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
@@ -123,7 +123,7 @@ function setLineDrag(isDrag) {
 }
 
 function moveLine(dx, dy) {
-    const currLine = getLine();
+    const currLine = getLine()
     currLine.x += dx
     currLine.y += dy
 }
