@@ -14,4 +14,5 @@ function onOpenMemes() {
     document.querySelector('.saved-memes').classList.remove('hidden')
     document.querySelector('.meme-editor').classList.add('hidden')
     document.querySelector('.gallery-page').classList.add('hidden')
+    document.querySelector('.trans-btn-container').classList.remove('hidden')
 }

@@ -57,4 +57,5 @@ function onOpenGallery() {
     document.querySelector('.saved-memes').classList.add('hidden')
     document.querySelector('.meme-editor').classList.add('hidden')
     document.querySelector('.gallery-page').classList.remove('hidden')
+    document.querySelector('.trans-btn-container').classList.remove('hidden')
 }

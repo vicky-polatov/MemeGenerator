@@ -110,3 +110,7 @@ function setLang(elBtn) {
     doTrans()
 }
 
+function getLang() {
+    return gCurrLang
+}
+

@@ -11,6 +11,7 @@ function onEditorInit() {
     addTouchEventListeners()
     resizeCanvas()
     renderMeme()
+    handleTextInp()
     doTrans()
 }
 
@@ -18,6 +19,7 @@ function onOpenEditor() {
     document.querySelector('.meme-editor').classList.remove('hidden')
     document.querySelector('.gallery-page').classList.add('hidden')
     document.querySelector('.saved-memes').classList.add('hidden')
+    document.querySelector('.trans-btn-container').classList.add('hidden')
     setActivePage()
 }
 
@@ -44,7 +46,13 @@ function clearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-function onAddLine(txt = 'your text') {
+function onAddLine() {
+    const lang = getLang()
+    let txt
+    if (lang === 'he') txt = 'הטקסט שלך'
+    else if (lang === 'es') txt = 'Tu texto'
+    else txt = 'your text'
+
     const elInp = document.querySelector('[name="text"]')
     addLine(txt, gElCanvas.width / 10)
     const lines = getLines()
@@ -55,6 +63,18 @@ function onAddLine(txt = 'your text') {
     elInp.value = ''
     doTrans()
     renderMeme()
+}
+
+function handleTextInp() {
+    const elInp = document.querySelector('[name="text"]')
+    if (getMeme().lines.length === 0) {
+        elInp.disabled = true
+        elInp.value = ''
+    }
+    else {
+        elInp.disabled = false
+        elInp.value = elInp.value = gMeme.lines[gMeme.selectedLineIdx].txt
+    }
 }
 
 function drawLines() {
