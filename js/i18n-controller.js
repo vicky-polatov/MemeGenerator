@@ -102,11 +102,14 @@ function setLang(elBtn) {
         elBtn.innerText = 'עברית'
     } else if (gCurrLang === 'es') {
         gCurrLang = 'he'
+        document.body.classList.add('rtl')
         elBtn.innerText = 'English'
     } else {
         gCurrLang = 'en'
+        document.body.classList.remove('rtl')
         elBtn.innerText = 'Español'
     }
+
     doTrans()
 }
 

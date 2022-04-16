@@ -15,8 +15,8 @@
 
   .header-nav {
     position: fixed;
-    top: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
     flex-direction: column;
     background-color: rgba(19, 18, 18, 0.9);
     height: 100vh;
@@ -26,7 +26,11 @@
     transform: translateX(100%);
     z-index: 1;
   }
-  
+
+  body.rtl .header-nav{
+    transform: translateX(-100%)
+  }
+
   body.menu-open .header-nav {
     transform: translateX(0);
     box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
@@ -96,7 +100,7 @@ body.menu-open .screen{
    }
 
    .btn-menu {
-    display: none;
+    transform: scaleY(-150);
    }
 
    .fin-btn {
