@@ -94,11 +94,11 @@ function drawLines() {
 }
 
 function drawLine(line) {
-    gCtx.font = `${line.size}px ${line.fontFamily}` //
-    gCtx.lineWidth = 2 //
-    gCtx.strokeStyle = line.strokeColor // 
-    gCtx.fillStyle = line.fontColor // 
-    gCtx.textAlign = line.align //
+    gCtx.font = `${line.size}px ${line.fontFamily}`
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = line.strokeColor
+    gCtx.fillStyle = line.fontColor
+    gCtx.textAlign = line.align
 
     if (!line.x) line.x = gElCanvas.width / 2
     if (!line.y) line.y = gElCanvas.height / 2
