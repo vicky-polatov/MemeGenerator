@@ -10,18 +10,20 @@
 </head>
 
 <body onload="onGalleryInit()">
-  <div class="screen" onclick="onToggleMenu()"></div>
+    <div class="screen" onclick="onToggleMenu()"></div>
     <header>
         <div class="header-container flex align-center space-between">
             <div class="logo flex align-center">
-                <img class="img-logo" src="img/LOGO.png" onclick="onOpenGallery()"/>
+                <img class="img-logo" src="img/logo.png" onclick="onOpenGallery()" />
             </div>
             <div class="header-btns flex align-center justify-end">
                 <button class="btn-menu" onclick="onToggleMenu()">☰</button>
                 <nav>
                     <ul class="header-nav flex align-center clean-list">
-                        <li class="flex align-center"><a class="flex align-center justify-center gallery active" data-trans="gallery" onclick="onOpenGallery()">Gallery</a></li>
-                        <li class="flex align-center"><a class="flex align-center justify-center memes" data-trans="memes" onclick="onOpenMemes()">Memes</a></li>
+                        <li class="flex align-center"><a class="flex align-center justify-center gallery active"
+                                data-trans="gallery" onclick="onOpenGallery()">Gallery</a></li>
+                        <li class="flex align-center"><a class="flex align-center justify-center memes"
+                                data-trans="memes" onclick="onOpenMemes()">Memes</a></li>
                     </ul>
                 </nav>
             </div>
@@ -31,20 +33,21 @@
     <div class="trans-btn-container flex align-center justify-end">
         <button class="trans-btn" onclick="setLang(this)">Español</button>
     </div>
-    
+
     <main class="main-screen">
         <section class="gallery-page column">
             <nav class="search-area-container flex align-center space-between">
                 <div class="search-box flex align-center justify-center space-between">
-                    <input list="search-words" type="text" name="search-box" data-trans="search" placeholder="search" onchange="onFilter(this, this.value)">
+                    <input list="search-words" type="text" name="search-box" data-trans="search" placeholder="search"
+                        onchange="onFilter(this, this.value)">
                     <datalist id="search-words">
-                      <option data-trans="search-all">
-                      <option data-trans="search-baby">
-                      <option data-trans="search-animals">
-                      <option data-trans="search-cute">
-                      <option data-trans="search-celebs">
-                  </datalist>
-                    <img src="img/ICONS/search-icon.png" />
+                        <option data-trans="search-all">
+                        <option data-trans="search-baby">
+                        <option data-trans="search-animals">
+                        <option data-trans="search-cute">
+                        <option data-trans="search-celebs">
+                    </datalist>
+                    <img src="img/icons/search-icon.png" />
                 </div>
 
                 <ul class="search-words clean-list flex align-center space-between">
@@ -79,54 +82,57 @@
 
 
             <section class="tools-container flex column justify-center align-center">
-                <input type="text" name="text" id="text" autocomplete="off" data-trans="text" oninput="onEditText(this)" disabled>
+                <input type="text" name="text" id="text" autocomplete="off" data-trans="text" oninput="onEditText(this)"
+                    disabled>
                 <div class="line-tools flex">
                     <button class="tools-btn switch-line" onclick="onSwitchLine()"><img
-                      src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
-              </button>
+                            src="img/icons/up-and-down-opposite-double-arrows-side-by-side.png">
+                    </button>
                     <button class="tools-btn add" onclick="onAddLine()">
-                  <img src="img/ICONS/add.png">
-              </button>
+                        <img src="img/icons/add.png">
+                    </button>
                     <button class="tools-btn delete" onclick="onDeleteLine()">
-                  <img src="img/ICONS/trash.png">
-              </button>
+                        <img src="img/icons/trash.png">
+                    </button>
                 </div>
                 <div class="text-tools">
                     <button class="tools-btn font-up" onclick="onSetFontSize(2)">
-                  <img src="img/ICONS/increase font - icon.png">
-              </button>
+                        <img src="img/icons/increase-font - icon.png">
+                    </button>
                     <button class="tools-btn font-down" onclick="onSetFontSize(-2)">
-                  <img src="img/ICONS/decrease font - icon.png">
-              </button class="tools-btn">
-              <button class="tools-btn align-right-btn" onclick="alignText('right')">
-                  <img src="img/ICONS/align-to-left.png" >
-              </button>
+                        <img src="img/icons/decrease-font-icon.png">
+                    </button class="tools-btn">
+                    <button class="tools-btn align-right-btn" onclick="alignText('right')">
+                        <img src="img/icons/align-to-left.png">
+                    </button>
                     <button class="tools-btn align-center-btn" onclick="alignText('center')">
-                  <img src="img/ICONS/center-text-alignment.png">
-              </button>
+                        <img src="img/icons/center-text-alignment.png">
+                    </button>
                     <button class="tools-btn align-left-btn" onclick="alignText('left')">
-                <img src="img/ICONS/align-to-right.png">
-              </button>
+                        <img src="img/icons/align-to-right.png">
+                    </button>
                     <select class="tools-btn font-pick" onchange="setFontFamily(this)">
-                  <option value="Impact" class="impact" >IMPACT</option>
-                  <option value="Poppins-medium" class="impact" >POPPINS</option>
-                  <option value="Tahoma" class="lucida">TAHOMA</option>
-                  <option value="Arial" class="arial">ARIAL</option>
-                  <option value="Verdana" class="verdana">VERDANA</option>
-              </select>
+                        <option value="Impact" class="impact">IMPACT</option>
+                        <option value="Poppins-medium" class="impact">POPPINS</option>
+                        <option value="Tahoma" class="lucida">TAHOMA</option>
+                        <option value="Arial" class="arial">ARIAL</option>
+                        <option value="Verdana" class="verdana">VERDANA</option>
+                    </select>
                     <label>
-                  <img class="tools-btn color-btn" src="img/ICONS/text stroke.png">
-                  <input type="color" name="stroke-color" oninput="onColorChange(this, false)">
-              </label>
+                        <img class="tools-btn color-btn" src="img/icons/text-stroke.png">
+                        <input type="color" name="stroke-color" oninput="onColorChange(this, false)">
+                    </label>
                     <label>
-                  <img class="tools-btn color-btn" src="img/ICONS/paint-board-and-brush.png">
-                  <input type="color" name="font-color" oninput="onColorChange(this, true)">
-              </label>
+                        <img class="tools-btn color-btn" src="img/icons/text-fill.png">
+                        <input type="color" name="font-color" oninput="onColorChange(this, true)">
+                    </label>
                 </div>
                 <div class="fin-btn-container flex">
                     <button class="fin-btn save-btn" data-trans="save" onclick="onSaveMeme(this, event)">Save</button>
-                    <button class="fin-btn share-btn" data-trans="share" onclick=" onShareMeme(this, event)">Share</button>
-                    <a href="#" class="fin-btn download-btn" data-trans="download" onclick="onDownloadMeme(this, event)" download="my-meme.jpg">download</a>
+                    <button class="fin-btn share-btn" data-trans="share"
+                        onclick=" onShareMeme(this, event)">Share</button>
+                    <a href="#" class="fin-btn download-btn" data-trans="download" onclick="onDownloadMeme(this, event)"
+                        download="my-meme.jpg">download</a>
                 </div>
             </section>
         </section>
@@ -144,11 +150,11 @@
     </main>
 
     <script src="js/utils.js"></script>
-    <script src="js/i18n-controller.js"></script>
     <script src="js/storage-service.js"></script>
     <script src="js/saved-memes-service.js"></script>
     <script src="js/editor-service.js"></script>
     <script src="js/gallery-service.js"></script>
+    <script src="js/i18n-controller.js"></script>
     <script src="js/saved-memes-page-controller.js"></script>
     <script src="js/editor-controller.js"></script>
     <script src="js/gallery-controller.js"></script>

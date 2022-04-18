@@ -43,7 +43,7 @@ function addLine(txt, size) {
     gMeme.lines.push(_createLine(txt, size))
 }
 
-function selectLine() {
+function nextLine() {
     if (!gMeme.lines.length) return
     if (gMeme.lines[gMeme.selectedLineIdx]) gMeme.lines[gMeme.selectedLineIdx].isSelected = false
     let currIdx = gMeme.selectedLineIdx

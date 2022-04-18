@@ -66,7 +66,7 @@ function onAddLine() {
     const lines = getLines()
     if (lines.length === 1) lines[0].y = 80
     else if (lines.length === 2) lines[1].y = gElCanvas.height - 80
-    selectLine()
+    nextLine()
     elInp.disabled = false
     elInp.value = ''
     doTrans()
@@ -135,7 +135,7 @@ function onEditText(elInp) {
 
 function onSwitchLine() {
     const elEditLine = document.querySelector('[name="text"]')
-    selectLine()
+    nextLine()
     elEditLine.value = getLine().txt
     renderMeme()
 }
@@ -146,7 +146,10 @@ function onDeleteLine() {
     const lines = getLines()
     elInp.value = ''
     if (!lines || lines.length === 0) elInp.disabled = true
-    else elInp.placeholder = 'Type your text here'
+    else {
+        nextLine()
+        elInp.value = getLine().txt
+    }
     renderMeme()
 }
 

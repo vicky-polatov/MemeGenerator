@@ -20,6 +20,13 @@
     position: relative;
 }
 
+.search-box img {
+    position: absolute;
+    inset-inline-end: 1rem;
+    height: 34px;
+    width: 52px;
+}
+
 [name="search-box"] {
     border: none;
     background: none;
@@ -28,13 +35,6 @@
     padding-inline-start: 10.15rem;
     font-size: 1.312rem;
     min-height: 3.125rem;
-}
-
-.search-box img {
-    position: absolute;
-    inset-inline-end: 1rem;
-    height: 34px;
-    width: 52px;
 }
 
 [name="search-box"]:focus-visible,
