@@ -2,7 +2,7 @@
 
 function renderMemes() {
     const memes = getSavedMemes()
-    if (!memes) return
+    if (memes.length === 0) return
     let strHTMLs = memes.map(meme => {
         return `<img src="${meme.dataUrl}" class="meme-img" onclick="onEditMeme('${meme.id}')">`
     })
