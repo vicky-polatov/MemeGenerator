@@ -1,11 +1,11 @@
 'use strict'
 
-const gKeyWords = { all: 0, baby: 3, animals: 8, cute: 1, celebs: 0 }
+const SEARCH_WORDS_KEY = 'searchWordsDB'
+const gKeyWords = loadFromStorage(SEARCH_WORDS_KEY) || { all: 0, baby: 3, animals: 8, cute: 1, celebs: 0 }
 let gImgs = []
 let gFilterBy = 'all'
 
 _createImgs()
-
 
 function getKeyWords() {
     return gKeyWords
@@ -35,8 +35,9 @@ function setFilter(keyWord) {
             break
     }
 
-    if (!gKeyWords[keyWord] && gKeyWords[keyWord] == !0) return
+    if (!gKeyWords[keyWord] && gKeyWords[keyWord] !== 0) return
     gKeyWords[keyWord]++
+    saveToStorage(SEARCH_WORDS_KEY, gKeyWords)
 
     //** */
     // if (gKeyWords[keyWord] < 20) gKeyWords[keyWord]++
@@ -53,9 +54,9 @@ function setFilter(keyWord) {
 }
 
 function getImgsForDisplay() {
-    if (gFilterBy === 'all') return gImgs;
+    if (gFilterBy === 'all') return gImgs
     let imgs = gImgs.filter(img => {
-        return img.keyWords.includes(gFilterBy);
+        return img.keyWords.includes(gFilterBy)
     })
     return imgs
 }

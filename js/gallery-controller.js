@@ -3,7 +3,7 @@
 function onGalleryInit() {
     renderImgs()
     renderSearchWords()
-    doTrans()
+    renderTrans()
 }
 
 function renderImgs() {
@@ -20,12 +20,12 @@ function renderSearchWords() {
 
     let strHTML = keyWords.map(keyWord => {
         const fontSize = keyWordMap[keyWord] + 14
-        return `<li class="search-line flex align-center" style="font-size: ${fontSize}px" data-trans="search-${keyWord}" onclick="onFilter(null, '${keyWord}')"> ${keyWord}</li>`
+        return `<li class="search-line flex align-center" style="font-size: ${fontSize}px" data-trans="search-${keyWord}" onclick="onSetFilter(null, '${keyWord}')"> ${keyWord}</li>`
     })
     document.querySelector('.search-words').innerHTML = strHTML.join('')
 }
 
-function onFilter(elInp, value) {
+function onSetFilter(elInp, value) {
     if (elInp) {
         elInp.value = ''
         elInp.placeholder = 'Search'

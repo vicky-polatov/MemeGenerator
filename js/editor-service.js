@@ -5,7 +5,7 @@ const SAVED_MEMES_KEY = 'SAVED_MEMES'
 let gMeme
 let gSavedMemes
 let gStartPos
-let gUserImg
+
 
 function initMeme(selectedImgId = 0) {
     gMeme = {
@@ -81,7 +81,6 @@ function setColor(color, elChangeComponent) {
 }
 
 function isLineClicked(clickedPos) {
-    const elTxtInput = document.querySelector('[name="text"]')
     const oldIdx = gMeme.selectedLineIdx
     let selectedLine
     selectedLine = gMeme.lines.findIndex(line => {
@@ -98,15 +97,12 @@ function isLineClicked(clickedPos) {
     if (selectedLine !== -1 && selectedLine !== oldIdx) {
         gMeme.lines[oldIdx].isSelected = false
         gMeme.selectedLineIdx = selectedLine
-        const newLine = getLine()
-        newLine.isSelected = true
-        elTxtInput.value = newLine.txt
+        getLine().isSelected = true
     }
 }
 
 function setLineDrag(isDrag) {
-    const currLine = getLine()
-    currLine.isDrag = isDrag
+    getLine().isDrag = isDrag
 }
 
 function moveLine(dx, dy) {
@@ -128,9 +124,4 @@ function _createLine(txt = '', size, fontFamily = 'Impact',
     }
 }
 
-function setUserImg(img) {
-    onOpenEditor()
-    initMeme()
-    gUserImg = img
-    onEditorInit()
-}
+

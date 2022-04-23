@@ -3,6 +3,7 @@
 let gElCanvas = document.querySelector('#main-canvas')
 let gCtx = gElCanvas.getContext('2d')
 let gIsDownloadable = false
+let gUserImg
 
 function onEditorInit() {
     gIsDownloadable = false
@@ -159,7 +160,6 @@ function onSetFontSize(diffSize) {
 }
 
 function alignText(alignTo) {
-    console.log(alignTo)
     const currLine = getLine()
     currLine.align = alignTo
     renderMeme()
@@ -204,6 +204,13 @@ function onDownloadMeme(elLink, ev) {
         elLink.click()
         renderMeme()
     }, 0)
+}
+
+function setUserImg(img) {
+    onOpenEditor()
+    initMeme()
+    gUserImg = img
+    onEditorInit()
 }
 
 function onShareMeme(elLink, ev) {
@@ -256,6 +263,7 @@ function onDown(ev) {
     const pos = getEvPos(ev)
     isLineClicked(pos)
     if (gMeme.selectedLineIdx !== -1) {
+        document.querySelector('[name="text"]').value = getLine().txt
         setLineDrag(true)
         document.querySelector('#main-canvas').style.cursor = 'grabbing'
     }
