@@ -14,12 +14,12 @@
     text-align: center;
 }
 
-.trans-btn-container{
-   margin-block-end: 1rem ; 
-   margin-block-start: 1 rem ; 
+.trans-btn-container {
+    margin-block-end: 1rem;
+    margin-block-start: 1 rem;
 }
 
-.trans-btn{
+.trans-btn {
     background-color: var(--clr-container-bcg);
     color: var(--clr-search-line-bcg);
     padding: .5rem;
@@ -77,17 +77,16 @@
     align-self: center;
     font-size: 1.3rem;
     font-weight: 600;
-   cursor: pointer;
-  }
-  
-  [name="file"] {
+    cursor: pointer;
+}
+
+[name="file"] {
     position: absolute;
     color: transparent;
     z-index: -1;
     cursor: pointer;
-  }
-  
-  .upload-container:hover {
+}
+
+.upload-container:hover {
     background-color: var(--clr-active-txt);
-  }
-  
+}

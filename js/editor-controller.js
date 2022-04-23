@@ -12,7 +12,7 @@ function onEditorInit() {
     resizeCanvas()
     renderMeme()
     handleTextInp()
-    doTrans()
+    renderTrans()
 }
 
 function onOpenEditor() {
@@ -55,7 +55,7 @@ function clearCanvas() {
 }
 
 function onAddLine() {
-    const lang = getLang()
+    const lang = getCurrLang()
     let txt
     if (lang === 'he') txt = 'הטקסט שלך'
     else if (lang === 'es') txt = 'Tu texto'
@@ -69,7 +69,7 @@ function onAddLine() {
     nextLine()
     elInp.disabled = false
     elInp.value = ''
-    doTrans()
+    renderTrans()
     renderMeme()
 }
 

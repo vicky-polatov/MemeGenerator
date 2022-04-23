@@ -27,6 +27,10 @@ function getMeme() {
     return gMeme
 }
 
+function setGMeme(memeDB) {
+    gMeme = memeDB
+}
+
 function saveMeme(memeDataUrl) {
     if (!gSavedMemes) gSavedMemes = []
     gSavedMemes.push({ dataUrl: memeDataUrl, id: makeId(), memeDB: gMeme })

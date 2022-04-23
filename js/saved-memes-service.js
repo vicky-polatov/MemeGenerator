@@ -1,9 +1,7 @@
 'use strict'
 
-function editMeme(memeId) {
+function findMeme(memeId) {
     const savedMemes = getSavedMemes()
     const meme = savedMemes.find(meme => meme.id === memeId)
-    gMeme = meme.memeDB
-    onOpenEditor()
-    onEditorInit()
+    setGMeme(meme.memeDB)
 }
