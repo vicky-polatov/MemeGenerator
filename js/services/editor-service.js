@@ -1,16 +1,13 @@
 'use strict'
 
-const SAVED_MEMES_KEY = 'SAVED_MEMES'
-
 let gMeme
-let gSavedMemes
 let gStartPos
 
 
 function initMeme(selectedImgId = 0) {
     gMeme = {
         selectedImgId,
-        selectedLineIdx: 0,
+        selectedLineIdx: null,
         lines: []
     }
 }
@@ -31,23 +28,12 @@ function setGMeme(memeDB) {
     gMeme = memeDB
 }
 
-function saveMeme(memeDataUrl) {
-    if (!gSavedMemes) gSavedMemes = []
-    gSavedMemes.push({ dataUrl: memeDataUrl, id: makeId(), memeDB: gMeme })
-    saveToStorage(SAVED_MEMES_KEY, gSavedMemes)
-}
-
-function getSavedMemes() {
-    gSavedMemes = loadFromStorage(SAVED_MEMES_KEY)
-    return gSavedMemes
-}
-
 function addLine(txt, size) {
     gMeme.lines.push(_createLine(txt, size))
 }
 
 function nextLine() {
-    if (!gMeme.lines.length) return
+    if (!getLines().length) return
     const oldLine = getLine()
     if (oldLine) oldLine.isSelected = false
     let currIdx = gMeme.selectedLineIdx
@@ -57,24 +43,24 @@ function nextLine() {
 }
 
 function deleteLine() {
-    if (!gMeme.lines.length) return
+    if (!gMeme.selectedLineIdx && gMeme.selectedLineIdx !== 0) return
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    if (getLines().length === 0) gMeme.selectedLineIdx = null
+    console.log(gMeme)
 }
 
 function setFontSize(diff) {
-    if (!gMeme.lines.length) return
-    const line = getLine()
-    line.size += diff
+    if (!gMeme.selectedLineIdx && gMeme.selectedLineIdx !== 0) return
+    getLine().size += diff
 }
 
-function setFontFamily(elOption) {
-    const fontFamily = elOption.value
-    const currLine = getLine()
-    currLine.fontFamily = fontFamily
+function setFontFamily(fontFamily) {
+    if (!gMeme.selectedLineIdx && gMeme.selectedLineIdx !== 0) return
+    getLine().fontFamily = fontFamily
 }
 
 function setColor(color, elChangeComponent) {
-    if (!gMeme.lines.length) return
+    if (!gMeme.selectedLineIdx && gMeme.selectedLineIdx !== 0) return
     const currLine = getLine()
     if (elChangeComponent === 'font') currLine.fontColor = color
     else currLine.strokeColor = color
@@ -102,10 +88,12 @@ function isLineClicked(clickedPos) {
 }
 
 function setLineDrag(isDrag) {
+    if (!gMeme.selectedLineIdx && gMeme.selectedLineIdx !== 0) return
     getLine().isDrag = isDrag
 }
 
 function moveLine(dx, dy) {
+    if (!gMeme.selectedLineIdx && gMeme.selectedLineIdx !== 0) return
     const currLine = getLine()
     currLine.x += dx
     currLine.y += dy

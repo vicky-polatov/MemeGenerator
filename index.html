@@ -82,8 +82,8 @@
 
 
             <section class="tools-container flex column justify-center align-center">
-                <input type="text" name="text" id="text" autocomplete="off" data-trans="text" oninput="onEditText(this)"
-                    disabled>
+                <input type="text" name="text" id="text" autocomplete="off" data-trans="text"
+                    oninput="onEditText(this.value)" disabled>
                 <div class="line-tools flex">
                     <button class="tools-btn switch-line" onclick="onSwitchLine()"><img
                             src="img/icons/up-and-down-opposite-double-arrows-side-by-side.png">
@@ -111,7 +111,7 @@
                     <button class="tools-btn align-left-btn" onclick="alignText('left')">
                         <img src="img/icons/align-to-right.png">
                     </button>
-                    <select class="tools-btn font-pick" onchange="setFontFamily(this)">
+                    <select class="tools-btn font-pick" onchange="onSetFontFamily(this.value)">
                         <option class="impact">Impact</option>
                         <option class="impact">Poppins-medium</option>
                         <option class="lucida">Tahoma</option>
@@ -120,11 +120,11 @@
                     </select>
                     <label>
                         <img class="tools-btn color-btn" src="img/icons/text-stroke.png">
-                        <input type="color" name="stroke-color" oninput="onColorChange(this, false)">
+                        <input type="color" name="stroke-color" oninput="onColorChange(this.value, false)">
                     </label>
                     <label>
                         <img class="tools-btn color-btn" src="img/icons/text-fill.png">
-                        <input type="color" name="font-color" oninput="onColorChange(this, true)">
+                        <input type="color" name="font-color" oninput="onColorChange(this.value, true)">
                     </label>
                 </div>
                 <div class="fin-btn-container flex">
@@ -149,16 +149,16 @@
     </footer>
     </main>
 
-    <script src="js/utils.js"></script>
-    <script src="js/storage-service.js"></script>
-    <script src="js/i18n-service.js"></script>
-    <script src="js/saved-memes-service.js"></script>
-    <script src="js/editor-service.js"></script>
-    <script src="js/gallery-service.js"></script>
-    <script src="js/i18n-controller.js"></script>
-    <script src="js/saved-memes-page-controller.js"></script>
-    <script src="js/editor-controller.js"></script>
-    <script src="js/gallery-controller.js"></script>
+    <script src="js/services/utils-service.js"></script>
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/i18n-service.js"></script>
+    <script src="js/services/saved-memes-service.js"></script>
+    <script src="js/services/editor-service.js"></script>
+    <script src="js/services/gallery-service.js"></script>
+    <script src="js/controllers/i18n-controller.js"></script>
+    <script src="js/controllers/saved-memes-page-controller.js"></script>
+    <script src="js/controllers/editor-controller.js"></script>
+    <script src="js/controllers/gallery-controller.js"></script>
 </body>
 
 </html>

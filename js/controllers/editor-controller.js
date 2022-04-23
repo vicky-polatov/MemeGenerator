@@ -126,10 +126,9 @@ function highlightLine() {
     gCtx.stroke()
 }
 
-function onEditText(elInp) {
+function onEditText(txt) {
     const line = getLine()
     if (!line) return
-    const txt = elInp.value
     line.txt = txt
     renderMeme()
 }
@@ -159,6 +158,11 @@ function onSetFontSize(diffSize) {
     renderMeme()
 }
 
+function onSetFontFamily(fontFamily) {
+    setFontFamily(fontFamily)
+    renderMeme()
+}
+
 function alignText(alignTo) {
     const currLine = getLine()
     currLine.align = alignTo
@@ -170,8 +174,7 @@ function onSetFontFamily(fontFamily) {
     renderMeme()
 }
 
-function onColorChange(elColor, isFill) {
-    const color = elColor.value
+function onColorChange(color, isFill) {
     const elChangeComponent = isFill ? 'font' : 'stroke'
     setColor(color, elChangeComponent)
     renderMeme()
@@ -259,6 +262,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
 }
 
 function onDown(ev) {
+    if (getLines().length === 0) return
     ev.preventDefault
     const pos = getEvPos(ev)
     isLineClicked(pos)
@@ -286,6 +290,7 @@ function onMove(ev) {
 }
 
 function onUp() {
+    if (getLines().length === 0) return
     setLineDrag(false)
     document.querySelector('#main-canvas').style.cursor = 'grab'
 }

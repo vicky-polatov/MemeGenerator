@@ -34,7 +34,6 @@
   }
 
   .header-btns .header-nav a {
-    display: block;
     display: flex;
     align-items: center;
     color: var(--clr-search-line-bcg);
