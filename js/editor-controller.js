@@ -167,6 +167,7 @@ function alignText(alignTo) {
 
 function onSetFontFamily(fontFamily) {
     setFontFamily(fontFamily)
+    renderMeme()
 }
 
 function onColorChange(elColor, isFill) {
@@ -259,6 +260,7 @@ function onDown(ev) {
         document.querySelector('#main-canvas').style.cursor = 'grabbing'
     }
     gStartPos = pos
+    renderMeme()
 }
 
 function onMove(ev) {
@@ -297,5 +299,23 @@ function addTouchEventListeners() {
     gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchstart', onDown)
     gElCanvas.addEventListener('touchend', onUp)
+}
+
+function getEvPos(ev) {
+    const touchEvs = ['touchstart', 'touchmove', 'touchend']
+
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (touchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
+    }
+    return pos
 }
 

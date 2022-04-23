@@ -30,7 +30,6 @@ function getMeme() {
 function saveMeme(memeDataUrl) {
     if (!gSavedMemes) gSavedMemes = []
     gSavedMemes.push({ dataUrl: memeDataUrl, id: makeId(), memeDB: gMeme })
-    console.log(gSavedMemes)
     saveToStorage(SAVED_MEMES_KEY, gSavedMemes)
 }
 
@@ -45,10 +44,12 @@ function addLine(txt, size) {
 
 function nextLine() {
     if (!gMeme.lines.length) return
-    if (gMeme.lines[gMeme.selectedLineIdx]) gMeme.lines[gMeme.selectedLineIdx].isSelected = false
+    const oldLine = getLine()
+    if (oldLine) oldLine.isSelected = false
     let currIdx = gMeme.selectedLineIdx
     gMeme.selectedLineIdx = (currIdx < gMeme.lines.length - 1) ? ++currIdx : 0
-    gMeme.lines[gMeme.selectedLineIdx].isSelected = true
+    const newLine = getLine()
+    newLine.isSelected = true
 }
 
 function deleteLine() {
@@ -58,15 +59,14 @@ function deleteLine() {
 
 function setFontSize(diff) {
     if (!gMeme.lines.length) return
-    const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].size += diff
+    const line = getLine()
+    line.size += diff
 }
 
 function setFontFamily(elOption) {
     const fontFamily = elOption.value
     const currLine = getLine()
     currLine.fontFamily = fontFamily
-    renderMeme()
 }
 
 function setColor(color, elChangeComponent) {
@@ -76,26 +76,9 @@ function setColor(color, elChangeComponent) {
     else currLine.strokeColor = color
 }
 
-function getEvPos(ev) {
-    const touchEvs = ['touchstart', 'touchmove', 'touchend']
-
-    let pos = {
-        x: ev.offsetX,
-        y: ev.offsetY
-    }
-    if (touchEvs.includes(ev.type)) {
-        ev.preventDefault()
-        ev = ev.changedTouches[0]
-        pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-        }
-    }
-    return pos
-}
-
 function isLineClicked(clickedPos) {
     const elTxtInput = document.querySelector('[name="text"]')
+    const oldIdx = gMeme.selectedLineIdx
     let selectedLine
     selectedLine = gMeme.lines.findIndex(line => {
         const textWidth = gCtx.measureText(line.txt)
@@ -108,13 +91,13 @@ function isLineClicked(clickedPos) {
             clickedPos.x < line.x + halfWidth
         )
     })
-    if (selectedLine !== -1) {
+    if (selectedLine !== -1 && selectedLine !== oldIdx) {
+        gMeme.lines[oldIdx].isSelected = false
         gMeme.selectedLineIdx = selectedLine
-        elTxtInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
-    } else {
-        elTxtInput.value = ''
+        const newLine = getLine()
+        newLine.isSelected = true
+        elTxtInput.value = newLine.txt
     }
-    renderMeme()
 }
 
 function setLineDrag(isDrag) {

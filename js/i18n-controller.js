@@ -62,7 +62,7 @@ const gTrans = {
         he: 'שמור',
     },
     "saved-memes-msg": {
-        en: 'NO MEME HAS BEEN SAVED YET',
+        en: 'No meme has been saved yet',
         es: 'No hay memés guardados',
         he: 'לא קיימים ממים שמורים',
     }
