@@ -46,7 +46,6 @@ function deleteLine() {
     if (!gMeme.selectedLineIdx && gMeme.selectedLineIdx !== 0) return
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     if (getLines().length === 0) gMeme.selectedLineIdx = null
-    console.log(gMeme)
 }
 
 function setFontSize(diff) {
